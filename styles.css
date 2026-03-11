@@ -1,0 +1,674 @@
+/* ═══════════════════════════════════════════════════════
+   polobienestar.css
+   Estilos personalizados para PoliBienestar
+   Politécnico Internacional
+═══════════════════════════════════════════════════════ */
+
+/* ── PALETA DE COLORES ──────────────────────────────────
+   --pb-azul        #003087   Azul oscuro institucional
+   --pb-azul-med    #0055b3   Azul medio (gradientes)
+   --pb-azul-claro  #4da6ff   Acento cielo / hover
+   --pb-azul-palido #e8f1fb   Fondos alternos suaves
+   --pb-gris        #f5f7fa   Fondo general de página
+   --pb-gris-dark   #e2e8f0   Bordes y separadores
+   --pb-texto       #0f1c3f   Texto principal oscuro
+   --pb-blanco      #ffffff   Blanco puro
+──────────────────────────────────────────────────────── */
+:root {
+  --pb-azul:        #003087;
+  --pb-azul-med:    #0055b3;
+  --pb-azul-claro:  #4da6ff;
+  --pb-azul-palido: #e8f1fb;
+  --pb-gris:        #f5f7fa;
+  --pb-gris-dark:   #e2e8f0;
+  --pb-texto:       #0f1c3f;
+  --pb-blanco:      #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--pb-gris);
+  color: var(--pb-texto);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Fraunces', serif; }
+
+/* ── NAVBAR ──────────────────────────────────────────── */
+.pb-navbar {
+  background-color: var(--pb-azul);
+  padding: 1rem 2rem;
+}
+
+.pb-navbar-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  color: var(--pb-blanco) !important;
+  letter-spacing: -.3px;
+}
+
+.pb-navbar-brand span {
+  color: var(--pb-azul-claro);
+}
+
+.pb-navbar-brand small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .55);
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.pb-nav-link {
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: .95rem;
+  transition: color .2s;
+}
+
+.pb-nav-link:hover {
+  color: var(--pb-azul-claro) !important;
+}
+
+.pb-navbar-toggler {
+  border-color: var(--pb-azul-claro);
+}
+
+.pb-navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234da6ff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.pb-btn-nav {
+  background-color: var(--pb-azul-claro);
+  color: var(--pb-azul) !important;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: .4rem 1.2rem;
+  font-size: .9rem;
+  transition: background .2s, transform .15s;
+}
+
+.pb-btn-nav:hover {
+  background-color: var(--pb-blanco);
+  transform: translateY(-1px);
+}
+
+/* ── HERO ────────────────────────────────────────────── */
+.pb-hero {
+  background: linear-gradient(135deg, var(--pb-azul) 0%, var(--pb-azul-med) 65%, #1a7fd4 100%);
+  color: var(--pb-blanco);
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pb-hero::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  top: -160px;
+  right: -110px;
+}
+
+.pb-hero::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  bottom: -70px;
+  left: -50px;
+}
+
+.pb-hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, .13);
+  border: 1px solid rgba(255, 255, 255, .28);
+  color: var(--pb-blanco);
+  border-radius: 50px;
+  padding: .35rem 1rem;
+  font-size: .82rem;
+  letter-spacing: .5px;
+  margin-bottom: 1.2rem;
+}
+
+.pb-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.pb-hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--pb-azul-claro);
+}
+
+.pb-hero p.lead {
+  font-size: 1.05rem;
+  opacity: .88;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.pb-btn-hero-primary {
+  background-color: var(--pb-blanco);
+  color: var(--pb-azul);
+  font-weight: 700;
+  border-radius: 50px;
+  padding: .75rem 1.8rem;
+  font-size: 1rem;
+  border: none;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.pb-btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+  color: var(--pb-azul);
+}
+
+.pb-btn-hero-secondary {
+  background: transparent;
+  color: var(--pb-blanco);
+  border: 2px solid rgba(255, 255, 255, .45);
+  border-radius: 50px;
+  padding: .75rem 1.8rem;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  transition: border-color .2s, background .2s;
+}
+
+.pb-btn-hero-secondary:hover {
+  border-color: var(--pb-blanco);
+  background: rgba(255, 255, 255, .1);
+  color: var(--pb-blanco);
+}
+
+/* Placeholder imagen hero */
+.pb-hero-img-box {
+  background: rgba(255, 255, 255, .1);
+  border: 2px dashed rgba(255, 255, 255, .38);
+  border-radius: 20px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, .72);
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pb-hero-img-box i {
+  font-size: 3.5rem;
+  opacity: .45;
+  margin-bottom: .8rem;
+}
+
+.pb-hero-img-box p {
+  font-size: .88rem;
+  margin: 0;
+  opacity: .75;
+}
+
+/*
+  Imagen real del hero.
+  Cuando tengas la foto, reemplaza el div.pb-hero-img-box con:
+  <img src="imagenes/hero.jpg" class="pb-hero-img-real" alt="Estudiantes Politécnico Internacional">
+*/
+.pb-hero-img-real {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── BANDA DE ESTADÍSTICAS ───────────────────────────── */
+.pb-stats-strip {
+  background-color: var(--pb-azul-med);
+  color: var(--pb-blanco);
+  padding: 2.2rem 0;
+}
+
+.pb-stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--pb-azul-claro);
+  line-height: 1;
+}
+
+.pb-stat-label {
+  font-size: .85rem;
+  opacity: .85;
+  margin-top: .3rem;
+}
+
+/* ── SECCIONES GENÉRICAS ─────────────────────────────── */
+section {
+  padding: 80px 0;
+}
+
+.pb-section-tag {
+  display: inline-block;
+  background: var(--pb-azul-claro);
+  color: var(--pb-azul);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: .3rem .9rem;
+  margin-bottom: 1rem;
+}
+
+.pb-section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: .75rem;
+}
+
+.pb-section-subtitle {
+  font-size: 1rem;
+  color: #5a6a8a;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.pb-section-alt {
+  background-color: var(--pb-azul-palido);
+}
+
+/* ── TARJETAS DE PROGRAMAS ───────────────────────────── */
+.pb-prog-card {
+  background: var(--pb-blanco);
+  border-radius: 18px;
+  padding: 2rem 1.8rem;
+  border: 1.5px solid var(--pb-gris-dark);
+  height: 100%;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.pb-prog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 48, 135, .12);
+  border-color: var(--pb-azul-claro);
+}
+
+.pb-prog-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--pb-azul-palido);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--pb-azul-med);
+  margin-bottom: 1.2rem;
+}
+
+.pb-prog-card h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.pb-prog-card p {
+  font-size: .9rem;
+  color: #5a6a8a;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+
+/* Badges de público objetivo */
+.pb-badge {
+  font-size: .75rem;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: .3rem .75rem;
+}
+
+.pb-badge-est   { background: #dbeafe; color: #1d4ed8; } /* Estudiantes  */
+.pb-badge-adm   { background: #fef3c7; color: #92400e; } /* Administrativos */
+.pb-badge-todos { background: #e0f2fe; color: #075985; } /* Todos        */
+
+.pb-btn-card {
+  color: var(--pb-azul-med);
+  font-weight: 600;
+  font-size: .88rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  transition: gap .2s;
+}
+
+.pb-btn-card:hover {
+  gap: .6rem;
+  color: var(--pb-azul);
+}
+
+/* ── GALERÍA DE FOTOS ────────────────────────────────── */
+#galeria {
+  background-color: var(--pb-azul-palido);
+}
+
+/* Foto principal grande */
+.pb-foto-principal {
+  border-radius: 20px;
+  border: 2px dashed var(--pb-azul-claro);
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--pb-blanco);
+  text-align: center;
+  padding: 2rem;
+}
+
+.pb-foto-principal i {
+  font-size: 4rem;
+  color: var(--pb-azul-med);
+  opacity: .35;
+  margin-bottom: 1rem;
+}
+
+.pb-foto-principal p {
+  font-size: .9rem;
+  color: #5a6a8a;
+  margin: 0;
+}
+
+/*
+  Para reemplazar el placeholder por una imagen real:
+  <img src="fotos/principal.jpg"
+       style="width:100%; height:360px; object-fit:cover; border-radius:20px;"
+       alt="Evento PoliBienestar">
+*/
+
+/* Miniaturas de galería */
+.pb-foto-thumb {
+  border-radius: 14px;
+  background: var(--pb-blanco);
+  border: 2px dashed var(--pb-azul-claro);
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--pb-azul-med);
+  font-size: .78rem;
+  text-align: center;
+  padding: .8rem;
+  opacity: .8;
+}
+
+.pb-foto-thumb i {
+  font-size: 1.8rem;
+  margin-bottom: .4rem;
+}
+
+/* Caja de ayuda para el desarrollador */
+.pb-foto-hint {
+  background: rgba(0, 48, 135, .06);
+  border-left: 4px solid var(--pb-azul-claro);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.2rem;
+  font-size: .85rem;
+  color: #334;
+  margin-top: 1.2rem;
+}
+
+.pb-foto-hint code {
+  background: var(--pb-gris-dark);
+  padding: .1rem .4rem;
+  border-radius: 4px;
+  font-size: .82rem;
+}
+
+/* Botón subir foto (demo interactivo) */
+.pb-btn-upload {
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+  border: none;
+  border-radius: 50px;
+  padding: .65rem 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.pb-btn-upload:hover {
+  background: var(--pb-azul-med);
+  transform: translateY(-1px);
+}
+
+/* ── RECURSOS ────────────────────────────────────────── */
+.pb-rec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--pb-blanco);
+  border-radius: 14px;
+  border: 1.5px solid var(--pb-gris-dark);
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.pb-rec-item:hover {
+  border-color: var(--pb-azul-claro);
+  box-shadow: 0 6px 20px rgba(0, 48, 135, .08);
+  color: inherit;
+}
+
+.pb-rec-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: var(--pb-azul-palido);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--pb-azul-med);
+}
+
+.pb-rec-item h6 {
+  font-size: .95rem;
+  font-weight: 600;
+  margin-bottom: .25rem;
+}
+
+.pb-rec-item p {
+  font-size: .85rem;
+  color: #5a6a8a;
+  margin: 0;
+}
+
+/* ── SECCIÓN CONTACTO ────────────────────────────────── */
+#contacto {
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+}
+
+.pb-form-label {
+  font-size: .88rem;
+  font-weight: 500;
+  margin-bottom: .4rem;
+  color: rgba(255, 255, 255, .85);
+}
+
+.pb-form-control,
+.pb-form-select {
+  border-radius: 12px;
+  border: 1.5px solid var(--pb-gris-dark);
+  padding: .75rem 1rem;
+  font-size: .95rem;
+  background: var(--pb-gris);
+  color: var(--pb-texto);
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%;
+}
+
+.pb-form-control:focus,
+.pb-form-select:focus {
+  outline: none;
+  border-color: var(--pb-azul-claro);
+  box-shadow: 0 0 0 3px rgba(77, 166, 255, .25);
+  background: var(--pb-blanco);
+}
+
+.pb-btn-submit {
+  background: var(--pb-azul-claro);
+  color: var(--pb-azul);
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  padding: .8rem 2.2rem;
+  font-size: 1rem;
+  transition: background .2s, transform .15s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.pb-btn-submit:hover {
+  background: var(--pb-blanco);
+  transform: translateY(-2px);
+}
+
+.pb-contact-info-box {
+  background: rgba(255, 255, 255, .09);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+.pb-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.pb-contact-row i {
+  font-size: 1.3rem;
+  color: var(--pb-azul-claro);
+  margin-top: 2px;
+}
+
+.pb-contact-row span {
+  font-size: .9rem;
+  opacity: .88;
+  line-height: 1.5;
+}
+
+/* Caja de línea de crisis */
+.pb-crisis-box {
+  background: var(--pb-blanco);
+  border: 1.5px solid var(--pb-gris-dark);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.pb-footer {
+  background: #020e2a;
+  color: rgba(255, 255, 255, .6);
+  padding: 2.5rem 0;
+  font-size: .88rem;
+}
+
+.pb-footer a {
+  color: var(--pb-azul-claro);
+  text-decoration: none;
+}
+
+.pb-footer a:hover {
+  text-decoration: underline;
+}
+
+.pb-footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  color: var(--pb-blanco);
+}
+
+.pb-footer-brand span {
+  color: var(--pb-azul-claro);
+}
+
+.pb-footer-sub {
+  font-size: .75rem;
+  opacity: .5;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ── BOTÓN SCROLL TO TOP ─────────────────────────────── */
+.pb-scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .22);
+  z-index: 999;
+  transition: background .2s;
+}
+
+.pb-scroll-top:hover {
+  background: var(--pb-azul-med);
+}
+
+.pb-scroll-top.show {
+  display: flex;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pb-hero            { padding: 70px 0 60px; }
+  .pb-hero-img-box    { height: 220px; }
+  .pb-foto-principal  { height: 220px; }
+}

@@ -1,0 +1,430 @@
+/* ═══════════════════════════════════════════════════════
+   talleres.css
+   Página de Talleres de Bienestar — PoliBienestar
+   Politécnico Internacional
+   ───────────────────────────────────────────────────────
+   Depende de: Bootstrap 5, Bootstrap Icons, polobienestar.css
+   Este archivo solo agrega estilos específicos de la
+   página de talleres. Las variables --pb-* y estilos
+   base ya vienen de polobienestar.css
+═══════════════════════════════════════════════════════ */
+
+/* ── HERO TALLERES ───────────────────────────────────── */
+.pb-hero-talleres {
+  background: linear-gradient(135deg, var(--pb-azul) 0%, #0a4a9f 50%, var(--pb-azul-med) 100%);
+  color: var(--pb-blanco);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pb-hero-talleres::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  top: -120px; right: -80px;
+}
+
+.pb-hero-talleres::after {
+  content: '';
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  bottom: -60px; left: -40px;
+}
+
+.pb-hero-talleres h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.pb-hero-talleres h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--pb-azul-claro);
+}
+
+.pb-hero-talleres p.lead {
+  font-size: 1rem;
+  opacity: .88;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* Migas de pan */
+.pb-breadcrumb {
+  font-size: .85rem;
+  margin-bottom: 1.2rem;
+  opacity: .75;
+}
+
+.pb-breadcrumb a {
+  color: var(--pb-azul-claro);
+  text-decoration: none;
+}
+
+.pb-breadcrumb a:hover { text-decoration: underline; }
+.pb-breadcrumb span   { color: rgba(255,255,255,.5); margin: 0 .4rem; }
+
+/* ── FILTROS DE CATEGORÍA ────────────────────────────── */
+.pb-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 2.5rem;
+}
+
+.pb-filtro-btn {
+  background: var(--pb-blanco);
+  color: var(--pb-azul);
+  border: 1.5px solid var(--pb-gris-dark);
+  border-radius: 50px;
+  padding: .4rem 1.1rem;
+  font-size: .88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.pb-filtro-btn:hover,
+.pb-filtro-btn.activo {
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+  border-color: var(--pb-azul);
+}
+
+/* ── TARJETAS DE TALLER ──────────────────────────────── */
+.pb-taller-card {
+  background: var(--pb-blanco);
+  border-radius: 18px;
+  border: 1.5px solid var(--pb-gris-dark);
+  overflow: hidden;
+  height: 100%;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.pb-taller-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,48,135,.12);
+  border-color: var(--pb-azul-claro);
+}
+
+.pb-taller-card-header {
+  background: var(--pb-azul-palido);
+  padding: 1.4rem 1.6rem 1rem;
+  position: relative;
+}
+
+.pb-taller-categoria {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: .25rem .8rem;
+  margin-bottom: .8rem;
+}
+
+.pb-cat-estres     { background: #dbeafe; color: #1d4ed8; }
+.pb-cat-mindful    { background: #d1fae5; color: #065f46; }
+.pb-cat-habitos    { background: #fef3c7; color: #92400e; }
+.pb-cat-relaciones { background: #fce7f3; color: #9d174d; }
+.pb-cat-academico  { background: #ede9fe; color: #5b21b6; }
+
+.pb-taller-card-header h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: .3rem;
+  color: var(--pb-texto);
+}
+
+.pb-taller-icono {
+  position: absolute;
+  top: 1.2rem; right: 1.4rem;
+  font-size: 2rem;
+  color: var(--pb-azul-med);
+  opacity: .25;
+}
+
+.pb-taller-card-body {
+  padding: 1.2rem 1.6rem 1.6rem;
+}
+
+.pb-taller-card-body p {
+  font-size: .9rem;
+  color: #5a6a8a;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+/* Info rápida del taller */
+.pb-taller-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1.2rem;
+}
+
+.pb-taller-meta-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .83rem;
+  color: #5a6a8a;
+}
+
+.pb-taller-meta-item i {
+  color: var(--pb-azul-med);
+  font-size: .95rem;
+  width: 16px;
+  text-align: center;
+}
+
+.pb-cupos-bar {
+  height: 6px;
+  background: var(--pb-gris-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: .3rem;
+}
+
+.pb-cupos-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: var(--pb-azul-claro);
+  transition: width .4s ease;
+}
+
+.pb-cupos-fill.lleno   { background: #ef4444; }
+.pb-cupos-fill.pocos   { background: #f59e0b; }
+.pb-cupos-fill.hay     { background: #10b981; }
+
+.pb-btn-inscribir {
+  display: block;
+  width: 100%;
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+  border: none;
+  border-radius: 50px;
+  padding: .6rem 1.2rem;
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+.pb-btn-inscribir:hover {
+  background: var(--pb-azul-med);
+  transform: translateY(-1px);
+  color: var(--pb-blanco);
+}
+
+.pb-btn-inscribir.deshabilitado {
+  background: var(--pb-gris-dark);
+  color: #9aa0aa;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── CALENDARIO ──────────────────────────────────────── */
+#calendario { background: var(--pb-azul-palido); }
+
+.pb-calendario-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.pb-calendario-nav h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--pb-azul);
+}
+
+.pb-cal-btn {
+  background: var(--pb-blanco);
+  border: 1.5px solid var(--pb-gris-dark);
+  color: var(--pb-azul);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  font-size: 1rem;
+}
+
+.pb-cal-btn:hover {
+  background: var(--pb-azul);
+  border-color: var(--pb-azul);
+  color: var(--pb-blanco);
+}
+
+/* Grid del calendario */
+.pb-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.pb-cal-dia-nombre {
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #5a6a8a;
+  padding: .4rem 0;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.pb-cal-dia {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: .88rem;
+  cursor: default;
+  position: relative;
+  transition: background .15s;
+}
+
+.pb-cal-dia.vacio { background: transparent; }
+
+.pb-cal-dia.normal {
+  background: var(--pb-blanco);
+  color: var(--pb-texto);
+  border: 1px solid var(--pb-gris-dark);
+}
+
+.pb-cal-dia.tiene-taller {
+  background: var(--pb-azul);
+  color: var(--pb-blanco);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pb-cal-dia.tiene-taller:hover {
+  background: var(--pb-azul-med);
+  transform: scale(1.05);
+}
+
+.pb-cal-dia.hoy {
+  border: 2px solid var(--pb-azul-claro) !important;
+}
+
+.pb-cal-dia .pb-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--pb-azul-claro);
+  position: absolute;
+  bottom: 4px;
+}
+
+/* Lista lateral de eventos del mes */
+.pb-evento-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--pb-blanco);
+  border-radius: 14px;
+  border: 1.5px solid var(--pb-gris-dark);
+  margin-bottom: .8rem;
+  transition: border-color .2s;
+}
+
+.pb-evento-item:hover { border-color: var(--pb-azul-claro); }
+
+.pb-evento-fecha {
+  min-width: 48px;
+  text-align: center;
+  background: var(--pb-azul-palido);
+  border-radius: 10px;
+  padding: .4rem .3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pb-evento-fecha .pb-dia-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--pb-azul);
+  line-height: 1;
+}
+
+.pb-evento-fecha .pb-mes-txt {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pb-azul-med);
+  letter-spacing: .5px;
+}
+
+.pb-evento-info h6 {
+  font-size: .92rem;
+  font-weight: 600;
+  margin-bottom: .2rem;
+}
+
+.pb-evento-info p {
+  font-size: .8rem;
+  color: #5a6a8a;
+  margin: 0;
+}
+
+/* ── SECCIÓN FORMULARIO ──────────────────────────────── */
+#inscripcion { background: var(--pb-azul); color: var(--pb-blanco); }
+
+.pb-form-card {
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+
+.pb-form-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--pb-blanco);
+}
+
+.pb-paso {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 2rem;
+}
+
+.pb-paso-num {
+  width: 32px; height: 32px; min-width: 32px;
+  background: var(--pb-azul-claro);
+  color: var(--pb-azul);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+.pb-paso span { font-size: .88rem; opacity: .85; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pb-hero-talleres { padding: 60px 0 40px; }
+  .pb-cal-dia { font-size: .75rem; }
+  .pb-form-card { padding: 1.5rem; }
+}
