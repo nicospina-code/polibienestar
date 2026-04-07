@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serie Bienestar — Videos — PoliBienestar</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,300&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <!-- Estilos base PoliBienestar -->
+  <link href="styles.css" rel="stylesheet" />
+  <!-- Estilos de videos -->
+  <link href="videos.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="pb-navbar navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="pb-navbar-brand navbar-brand" href="index.html">
+        Poli<span>Bienestar</span>
+        <small>Politécnico Internacional</small>
+      </a>
+      <button class="navbar-toggler pb-navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon pb-navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="pb-nav-link nav-link" href="polobienestar.html#programas">Programas</a></li>
+          <li class="nav-item"><a class="pb-nav-link nav-link" href="talleres.html">Talleres</a></li>
+          <li class="nav-item"><a class="pb-nav-link nav-link" href="foro.html">Foro</a></li>
+          <li class="nav-item"><a class="pb-nav-link nav-link" href="consulta.html">Consulta</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="pb-btn-nav nav-link" href="test.html">Hacer el test</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="pb-hero-videos">
+    <div class="container">
+      <div class="pb-breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span>/</span>
+        <a href="polobienestar.html#recursos">Recursos</a>
+        <span>/</span>
+        Serie Bienestar
+      </div>
+      <h1>Serie de<br /><em>Meditaciones y Bienestar</em></h1>
+      <p class="lead">
+        Colección de videos de meditación, mindfulness y bienestar emocional seleccionados para la comunidad del
+        Politécnico Internacional.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ VIDEOS ══════════ -->
+  <section id="videos">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <span class="pb-section-tag">Videos</span>
+        <h2 class="pb-section-title">Contenido de bienestar</h2>
+        <p class="pb-section-subtitle mx-auto">
+          Haz clic en el video que quieras ver. Puedes pausar, activar el sonido y controlar la reproducción
+          directamente.
+        </p>
+      </div>
+
+      <div class="pb-videos-grid">
+
+        <!-- ══ VIDEO 1 ══════════════════════════════════
+           CÓMO AGREGAR:
+           1. Ve al video en YouTube
+           2. Clic en Compartir → Insertar
+           3. Copia el src del iframe, solo el ID al final
+              Ejemplo: https://www.youtube.com/embed/AQUI_VA_EL_ID
+           4. Pega el ID en el src de abajo reemplazando REEMPLAZAR_ID
+      ════════════════════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/3oCC4NDgYrY?si=8_afXrSxmEsZwwvw" title="YouTube video"
+              frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="pb-video-info">
+            <h6>Meditación para principiantes (12 minutos)</h6>
+            <p>
+              Una guía sencilla para comenzar a meditar desde cero. Este video enseña
+              técnicas básicas de respiración y concentración que ayudan a reducir
+              el estrés, mejorar la atención y promover la calma mental.
+            </p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEO 2 ════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/f-c8vr49pD8?si=rQyAY33mTYJf5X8y"
+              title="Video 2 — Serie Bienestar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="pb-video-info">
+            <h6>¿Funciona la meditación?</h6>
+            <p> Explicación clara sobre cómo la meditación impacta el cerebro y el bienestar
+              emocional. Conoce qué dice la ciencia sobre sus beneficios para reducir
+              la ansiedad, mejorar la concentración y fortalecer la salud mental.</p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEO 3 ════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/g6OY_jTsQXg?si=lsacTtV0txT-KkAn"
+              title="Video 3 — Serie Bienestar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="pb-video-info">
+            <h6>Mindfulness: El arte de vivir conscientemente</h6>
+            <p> Introducción al mindfulness o atención plena. Aprende cómo vivir el
+              presente con mayor conciencia, gestionar pensamientos y mejorar
+              tu bienestar emocional en la vida diaria.</p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEO 4 ════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/4CjNB2zmYVY?si=NMZoe8psRozil1o0"
+              title="Video 4 — Serie Bienestar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="pb-video-info">
+            <h6>¿Qué hacer durante un ataque de pánico o crisis de ansiedad?</h6>
+            <p> Estrategias prácticas para manejar una crisis de ansiedad o ataque de
+              pánico. Incluye técnicas de respiración, regulación emocional y
+              recomendaciones para recuperar la calma.</p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEO 5 ════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/JBO8LYAaDAk?si=Xr2Cp7qbqM6rx31F"
+              title="Video 5 — Serie Bienestar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="pb-video-info">
+            <h6>Cómo combatir el estrés académico</h6>
+            <p> Consejos para manejar la presión académica, organizar el tiempo
+              y evitar el agotamiento mental. Ideal para estudiantes que buscan
+              mejorar su equilibrio entre estudio, descanso y bienestar.</p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEO 6 ════════════════════════════════ -->
+        <div class="pb-video-card">
+          <div class="pb-video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/LbUMnfyQoVg?si=Ss9IiK8dsjhWxIyF"
+              title="Video 6 — Serie Bienestar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="pb-video-info">
+            <h6>¿Cómo adquirir buenos hábitos sin fuerza de voluntad?</h6>
+            <p> Aprende cómo construir hábitos saludables de forma sostenible.
+              Este video explica estrategias simples para mejorar la disciplina,
+              la productividad y el bienestar personal.</p>
+          </div>
+        </div>
+
+      </div><!-- fin grid -->
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="pb-footer">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-md-4">
+          <div class="pb-footer-brand mb-1">Poli<span>Bienestar</span></div>
+          <div class="pb-footer-sub">Politécnico Internacional</div>
+        </div>
+        <div class="col-md-4 text-md-center">
+          <small>© 2025 Politécnico Internacional — Bienestar Estudiantil</small>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="talleres.html" class="me-3">Talleres</a>
+          <a href="test.html" class="me-3">Test</a>
+          <a href="consulta.html">Consulta</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="pb-scroll-top" id="scrollTop" title="Volver arriba">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => btnTop.classList.toggle('show', window.scrollY > 300));
+    btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+
+</html>

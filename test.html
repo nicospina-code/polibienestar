@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test de Bienestar Emocional — PoliBienestar</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Estilos base PoliBienestar -->
+  <link href="styles.css" rel="stylesheet"/>
+  <!-- Estilos del test -->
+  <link href="test.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="pb-navbar navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="pb-navbar-brand navbar-brand" href="index.html">
+      Poli<span>Bienestar</span>
+      <small>Politécnico Internacional</small>
+    </a>
+    <button class="navbar-toggler pb-navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon pb-navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="index.html">Programas</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="talleres.html">Talleres</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="foro.html">Foro</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="consulta.html">Consulta</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="pb-btn-nav nav-link" href="#test">Hacer el test</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="pb-hero-test">
+  <div class="container">
+    <div class="pb-breadcrumb">
+      <a href="polobienestar.html">Inicio</a>
+      <span>/</span>
+      <a href="polobienestar.html#recursos">Recursos</a>
+      <span>/</span>
+      Test de Bienestar
+    </div>
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="pb-hero-badge">
+          <i class="bi bi-journal-text me-1"></i> Autoevaluación anónima — Politécnico Internacional
+        </div>
+        <h1>Test de<br/><em>Bienestar Emocional</em></h1>
+        <p class="lead mb-4">
+          15 preguntas para conocer tu estado emocional actual. Completamente anónimo, sin registro y con resultados inmediatos. Tarda aproximadamente 5 minutos.
+        </p>
+        <div class="pb-garantias">
+          <span class="pb-garantia-chip"><i class="bi bi-shield-lock"></i> 100% anónimo</span>
+          <span class="pb-garantia-chip"><i class="bi bi-clock"></i> 5 minutos</span>
+          <span class="pb-garantia-chip"><i class="bi bi-graph-up"></i> Resultado inmediato</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TEST ══════════ -->
+<section id="test">
+  <div class="container">
+    <div class="pb-test-wrap">
+
+      <!-- ── PANTALLA DE INTRO ── -->
+      <div class="pb-intro-card" id="pantallaIntro">
+        <div class="pb-intro-icon">
+          <i class="bi bi-journal-text"></i>
+        </div>
+        <h3>Antes de comenzar</h3>
+        <p>
+          Este test evalúa tu bienestar emocional en diferentes áreas: estrés, ánimo, sueño, relaciones y rendimiento académico. No hay respuestas correctas o incorrectas, solo sé honesto contigo mismo.
+        </p>
+        <div class="pb-intro-chips">
+          <span class="pb-intro-chip"><i class="bi bi-list-ol"></i> 15 preguntas</span>
+          <span class="pb-intro-chip"><i class="bi bi-clock"></i> ~5 minutos</span>
+          <span class="pb-intro-chip"><i class="bi bi-eye-slash"></i> Anónimo</span>
+          <span class="pb-intro-chip"><i class="bi bi-graph-up"></i> Resultado inmediato</span>
+        </div>
+        <p style="font-size:.82rem; color:#9aa0aa; margin-bottom:1.5rem;">
+          <i class="bi bi-info-circle me-1"></i>
+          Este test es orientativo y no reemplaza la valoración de un profesional de salud mental.
+          Si sientes que necesitas ayuda, <a href="consulta.html" style="color:var(--pb-azul-med);">agenda una cita</a>.
+        </p>
+        <button class="pb-btn-iniciar" onclick="iniciarTest()">
+          <i class="bi bi-play-fill"></i> Comenzar test
+        </button>
+      </div>
+
+      <!-- ── BARRA DE PROGRESO ── -->
+      <div class="pb-progreso-wrap" id="barraProgreso" style="display:none;">
+        <div class="pb-progreso-info">
+          <span id="labelProgreso">Pregunta 1 de 15</span>
+          <strong id="porcentajeProgreso">0%</strong>
+        </div>
+        <div class="pb-barra-fondo">
+          <div class="pb-barra-fill" id="barraFill" style="width:0%;"></div>
+        </div>
+      </div>
+
+      <!-- ── PREGUNTAS ── -->
+      <div id="contenedorPreguntas"></div>
+
+      <!-- ── NAVEGACIÓN ── -->
+      <div class="pb-nav-preguntas" id="navPreguntas" style="display:none;">
+        <button class="pb-btn-anterior" id="btnAnterior" onclick="preguntaAnterior()" disabled>
+          <i class="bi bi-arrow-left"></i> Anterior
+        </button>
+        <span class="pb-alerta-responder" id="alertaResponder">
+          <i class="bi bi-exclamation-circle"></i> Selecciona una respuesta para continuar
+        </span>
+        <button class="pb-btn-siguiente" id="btnSiguiente" onclick="preguntaSiguiente()">
+          Siguiente <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- ── RESULTADO ── -->
+      <div class="pb-resultado-card" id="pantallaResultado"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="pb-footer">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-4">
+        <div class="pb-footer-brand mb-1">Poli<span>Bienestar</span></div>
+        <div class="pb-footer-sub">Politécnico Internacional</div>
+      </div>
+      <div class="col-md-4 text-md-center">
+        <small>© 2025 Politécnico Internacional — Bienestar Estudiantil</small>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a href="talleres.html" class="me-3">Talleres</a>
+        <a href="foro.html" class="me-3">Foro</a>
+        <a href="consulta.html">Consulta</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="pb-scroll-top" id="scrollTop" title="Volver arriba">
+  <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ════════════════════════════════════════════════════════
+   PREGUNTAS DEL TEST
+   Escala: 1=Nunca, 2=Casi nunca, 3=A veces, 4=Casi siempre, 5=Siempre
+   Algunas preguntas son inversas (mayor puntaje = peor bienestar)
+   y se marcan con  invertida: true
+════════════════════════════════════════════════════════ */
+const preguntas = [
+  {
+    id: 1,
+    area: 'Estrés',
+    texto: '¿Con qué frecuencia sientes que las exigencias académicas o laborales superan tu capacidad para manejarlas?',
+    invertida: true
+  },
+  {
+    id: 2,
+    area: 'Ánimo',
+    texto: '¿Con qué frecuencia te sientes con energía y motivación para enfrentar tu día?',
+    invertida: false
+  },
+  {
+    id: 3,
+    area: 'Sueño',
+    texto: '¿Con qué frecuencia tienes dificultades para dormir o descansas mal por las noches?',
+    invertida: true
+  },
+  {
+    id: 4,
+    area: 'Relaciones',
+    texto: '¿Con qué frecuencia sientes que tienes personas de confianza con quienes hablar cuando algo te preocupa?',
+    invertida: false
+  },
+  {
+    id: 5,
+    area: 'Ánimo',
+    texto: '¿Con qué frecuencia te sientes triste, vacío o sin ganas de hacer las cosas que antes disfrutabas?',
+    invertida: true
+  },
+  {
+    id: 6,
+    area: 'Académico',
+    texto: '¿Con qué frecuencia logras concentrarte bien cuando estudias o realizas tus actividades académicas?',
+    invertida: false
+  },
+  {
+    id: 7,
+    area: 'Estrés',
+    texto: '¿Con qué frecuencia sientes tensión física como dolor de cabeza, tensión muscular o malestar estomacal relacionado con el estrés?',
+    invertida: true
+  },
+  {
+    id: 8,
+    area: 'Autocuidado',
+    texto: '¿Con qué frecuencia realizas actividades que te generan bienestar como ejercicio, hobbies o tiempo para ti mismo?',
+    invertida: false
+  },
+  {
+    id: 9,
+    area: 'Relaciones',
+    texto: '¿Con qué frecuencia sientes que tus relaciones con compañeros, familia o pareja te generan conflictos o malestar?',
+    invertida: true
+  },
+  {
+    id: 10,
+    area: 'Ánimo',
+    texto: '¿Con qué frecuencia te sientes capaz de afrontar los problemas y encontrar soluciones?',
+    invertida: false
+  },
+  {
+    id: 11,
+    area: 'Académico',
+    texto: '¿Con qué frecuencia sientes que la presión por el rendimiento académico afecta negativamente tu bienestar emocional?',
+    invertida: true
+  },
+  {
+    id: 12,
+    area: 'Sueño',
+    texto: '¿Con qué frecuencia te despiertas sintiéndote descansado y con energía para el día?',
+    invertida: false
+  },
+  {
+    id: 13,
+    area: 'Autocuidado',
+    texto: '¿Con qué frecuencia sientes que tienes tiempo y espacio para descansar y desconectarte de las obligaciones?',
+    invertida: false
+  },
+  {
+    id: 14,
+    area: 'Estrés',
+    texto: '¿Con qué frecuencia sientes que pierdes el control de tus emociones ante situaciones de presión?',
+    invertida: true
+  },
+  {
+    id: 15,
+    area: 'General',
+    texto: '¿Con qué frecuencia te sientes satisfecho con tu vida y con cómo estás manejando tus responsabilidades actualmente?',
+    invertida: false
+  }
+];
+
+const opciones = [
+  { texto: 'Nunca',          valor: 1 },
+  { texto: 'Casi nunca',     valor: 2 },
+  { texto: 'A veces',        valor: 3 },
+  { texto: 'Casi siempre',   valor: 4 },
+  { texto: 'Siempre',        valor: 5 }
+];
+
+/* ════════════════════════════════════════════════════════
+   ESTADO
+════════════════════════════════════════════════════════ */
+let preguntaActual = 0;
+let respuestas = new Array(preguntas.length).fill(null);
+
+/* ════════════════════════════════════════════════════════
+   INICIAR TEST
+════════════════════════════════════════════════════════ */
+function iniciarTest() {
+  document.getElementById('pantallaIntro').style.display = 'none';
+  document.getElementById('barraProgreso').style.display = 'block';
+  document.getElementById('navPreguntas').style.display = 'flex';
+  renderizarPreguntas();
+  mostrarPregunta(0);
+  window.scrollTo({ top: document.getElementById('test').offsetTop - 80, behavior: 'smooth' });
+}
+
+/* ════════════════════════════════════════════════════════
+   RENDERIZAR TODAS LAS PREGUNTAS (ocultas)
+════════════════════════════════════════════════════════ */
+function renderizarPreguntas() {
+  const contenedor = document.getElementById('contenedorPreguntas');
+  contenedor.innerHTML = preguntas.map((p, i) => `
+    <div class="pb-pregunta-wrap" id="pregunta-${i}">
+      <span class="pb-pregunta-num">${p.area} · Pregunta ${i + 1} de ${preguntas.length}</span>
+      <p class="pb-pregunta-texto">${p.texto}</p>
+      <div class="pb-opciones">
+        ${opciones.map(o => `
+          <div class="pb-opcion" onclick="seleccionarOpcion(${i}, ${o.valor}, this)">
+            <div class="pb-opcion-circulo"></div>
+            <span class="pb-opcion-texto">${o.texto}</span>
+            <span class="pb-opcion-puntaje">${o.valor}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════════════════════════
+   MOSTRAR PREGUNTA
+════════════════════════════════════════════════════════ */
+function mostrarPregunta(idx) {
+  document.querySelectorAll('.pb-pregunta-wrap').forEach(el => el.classList.remove('activa'));
+  document.getElementById(`pregunta-${idx}`).classList.add('activa');
+
+  // Restaurar selección si ya respondió
+  if (respuestas[idx] !== null) {
+    const opcEls = document.querySelectorAll(`#pregunta-${idx} .pb-opcion`);
+    opcEls.forEach((el, i) => {
+      if (opciones[i].valor === respuestas[idx]) el.classList.add('seleccionada');
+    });
+  }
+
+  actualizarProgreso(idx);
+  actualizarNavegacion(idx);
+  document.getElementById('alertaResponder').classList.remove('visible');
+}
+
+/* ════════════════════════════════════════════════════════
+   SELECCIONAR OPCIÓN
+════════════════════════════════════════════════════════ */
+function seleccionarOpcion(pregIdx, valor, el) {
+  respuestas[pregIdx] = valor;
+  const opcEls = document.querySelectorAll(`#pregunta-${pregIdx} .pb-opcion`);
+  opcEls.forEach(o => o.classList.remove('seleccionada'));
+  el.classList.add('seleccionada');
+  document.getElementById('alertaResponder').classList.remove('visible');
+  actualizarNavegacion(pregIdx);
+}
+
+/* ════════════════════════════════════════════════════════
+   NAVEGACIÓN
+════════════════════════════════════════════════════════ */
+function preguntaSiguiente() {
+  if (respuestas[preguntaActual] === null) {
+    document.getElementById('alertaResponder').classList.add('visible');
+    return;
+  }
+
+  if (preguntaActual < preguntas.length - 1) {
+    preguntaActual++;
+    mostrarPregunta(preguntaActual);
+    window.scrollTo({ top: document.getElementById('test').offsetTop - 80, behavior: 'smooth' });
+  } else {
+    mostrarResultado();
+  }
+}
+
+function preguntaAnterior() {
+  if (preguntaActual > 0) {
+    preguntaActual--;
+    mostrarPregunta(preguntaActual);
+    window.scrollTo({ top: document.getElementById('test').offsetTop - 80, behavior: 'smooth' });
+  }
+}
+
+function actualizarNavegacion(idx) {
+  const btnAnterior  = document.getElementById('btnAnterior');
+  const btnSiguiente = document.getElementById('btnSiguiente');
+  const esUltima     = idx === preguntas.length - 1;
+
+  btnAnterior.disabled = idx === 0;
+  btnSiguiente.innerHTML = esUltima
+    ? '<i class="bi bi-check-lg"></i> Ver mi resultado'
+    : 'Siguiente <i class="bi bi-arrow-right"></i>';
+}
+
+/* ════════════════════════════════════════════════════════
+   PROGRESO
+════════════════════════════════════════════════════════ */
+function actualizarProgreso(idx) {
+  const respondidas  = respuestas.filter(r => r !== null).length;
+  const porcentaje   = Math.round((respondidas / preguntas.length) * 100);
+  document.getElementById('labelProgreso').textContent    = `Pregunta ${idx + 1} de ${preguntas.length}`;
+  document.getElementById('porcentajeProgreso').textContent = `${porcentaje}%`;
+  document.getElementById('barraFill').style.width        = `${porcentaje}%`;
+}
+
+/* ════════════════════════════════════════════════════════
+   CALCULAR Y MOSTRAR RESULTADO
+════════════════════════════════════════════════════════ */
+function mostrarResultado() {
+  // Ocultar preguntas y navegación
+  document.getElementById('contenedorPreguntas').style.display = 'none';
+  document.getElementById('navPreguntas').style.display = 'none';
+  document.getElementById('barraProgreso').style.display = 'none';
+
+  // Calcular puntaje normalizado
+  let puntajeTotal = 0;
+  preguntas.forEach((p, i) => {
+    const val = respuestas[i] || 3;
+    // Preguntas inversas: mayor frecuencia = peor bienestar → invertir
+    puntajeTotal += p.invertida ? (6 - val) : val;
+  });
+
+  // Puntaje: mínimo 15, máximo 75
+  const porcentaje = Math.round(((puntajeTotal - 15) / (75 - 15)) * 100);
+
+  // Clasificar nivel
+  let nivel, icono, titulo, descripcion, recomendaciones, colorClass;
+
+  if (porcentaje >= 65) {
+    nivel       = 'Bienestar alto';
+    colorClass  = 'alto';
+    icono       = 'bi-emoji-smile';
+    titulo      = '¡Tu bienestar emocional está en buen estado!';
+    descripcion = 'Los resultados indican que estás manejando bien las diferentes áreas de tu vida emocional. Sigue cultivando tus hábitos de autocuidado y redes de apoyo.';
+    recomendaciones = [
+      { icono: 'bi-journal-bookmark', texto: 'Participa en nuestros talleres de bienestar para seguir fortaleciendo tus habilidades emocionales.' },
+      { icono: 'bi-people',           texto: 'Comparte tus estrategias de bienestar con compañeros que puedan necesitarlo.' },
+      { icono: 'bi-arrow-repeat',     texto: 'Realiza este test cada mes para hacer seguimiento de tu estado emocional.' }
+    ];
+  } else if (porcentaje >= 40) {
+    nivel       = 'Bienestar medio';
+    colorClass  = 'medio';
+    icono       = 'bi-emoji-neutral';
+    titulo      = 'Tu bienestar emocional tiene áreas por fortalecer';
+    descripcion = 'Hay aspectos de tu bienestar que merecen atención. No es una situación de alarma, pero es un buen momento para buscar apoyo y trabajar en esas áreas.';
+    recomendaciones = [
+      { icono: 'bi-journal-bookmark', texto: 'Inscríbete en uno de nuestros talleres de bienestar, especialmente los de manejo del estrés y mindfulness.' },
+      { icono: 'bi-chat-dots',        texto: 'Comparte cómo te sientes en el foro anónimo. A veces expresarlo ayuda mucho.' },
+      { icono: 'bi-chat-heart',       texto: 'Considera agendar una consulta psicológica gratuita para explorar estas áreas con un profesional.' }
+    ];
+  } else {
+    nivel       = 'Bienestar bajo';
+    colorClass  = 'bajo';
+    icono       = 'bi-emoji-frown';
+    titulo      = 'Tu bienestar emocional necesita atención';
+    descripcion = 'Los resultados indican que estás atravesando un momento difícil. Es importante que busques apoyo profesional. No tienes que enfrentar esto solo, estamos aquí para ayudarte.';
+    recomendaciones = [
+      { icono: 'bi-chat-heart',   texto: 'Agenda una consulta psicológica gratuita. Es el paso más importante que puedes dar ahora.' },
+      { icono: 'bi-telephone',    texto: 'Si en algún momento sientes que no puedes más, llama a la Línea 106. Está disponible las 24 horas.' },
+      { icono: 'bi-people',       texto: 'Habla con alguien de confianza hoy. No importa qué tan pequeño parezca el paso, cuenta.' }
+    ];
+  }
+
+  const recsHTML = recomendaciones.map(r => `
+    <div class="pb-recomendacion-item">
+      <i class="bi ${r.icono}"></i>
+      <span>${r.texto}</span>
+    </div>
+  `).join('');
+
+  const resultadoEl = document.getElementById('pantallaResultado');
+  resultadoEl.innerHTML = `
+    <div class="pb-resultado-icono ${colorClass}">
+      <i class="bi ${icono}"></i>
+    </div>
+    <span class="pb-resultado-nivel ${colorClass}">${nivel}</span>
+    <h3>${titulo}</h3>
+    <p class="pb-resultado-desc">${descripcion}</p>
+
+    <div class="pb-medidor-wrap">
+      <div class="pb-medidor-labels">
+        <span>Bienestar bajo</span>
+        <span>Bienestar alto</span>
+      </div>
+      <div class="pb-medidor-barra">
+        <div class="pb-medidor-fill ${colorClass}" id="medidorFill" style="width:0%;"></div>
+      </div>
+      <p class="pb-medidor-puntaje">Puntaje: ${puntajeTotal} / 75</p>
+    </div>
+
+    <div class="pb-recomendaciones">
+      <h6><i class="bi bi-lightbulb"></i> Recomendaciones para ti</h6>
+      ${recsHTML}
+    </div>
+
+    <div class="pb-resultado-acciones">
+      <button class="pb-btn-reiniciar" onclick="reiniciarTest()">
+        <i class="bi bi-arrow-counterclockwise"></i> Hacer el test de nuevo
+      </button>
+      <a href="consulta.html" class="pb-btn-inscribir" style="display:inline-flex; align-items:center; gap:.4rem; padding:.65rem 1.6rem; font-size:.9rem; border-radius:50px; text-decoration:none;">
+        <i class="bi bi-calendar-plus"></i> Agendar consulta
+      </a>
+    </div>
+
+    <p style="font-size:.78rem; color:#9aa0aa; margin-top:1.2rem;">
+      <i class="bi bi-info-circle me-1"></i>
+      Este resultado es orientativo. Para una evaluación profesional, agenda una cita con nuestro equipo de psicólogos.
+    </p>
+  `;
+
+  resultadoEl.classList.add('visible');
+  window.scrollTo({ top: document.getElementById('test').offsetTop - 80, behavior: 'smooth' });
+
+  // Animar barra de resultado
+  setTimeout(() => {
+    document.getElementById('medidorFill').style.width = `${porcentaje}%`;
+  }, 300);
+}
+
+/* ════════════════════════════════════════════════════════
+   REINICIAR TEST
+════════════════════════════════════════════════════════ */
+function reiniciarTest() {
+  preguntaActual = 0;
+  respuestas     = new Array(preguntas.length).fill(null);
+
+  document.getElementById('pantallaResultado').classList.remove('visible');
+  document.getElementById('pantallaResultado').innerHTML = '';
+  document.getElementById('contenedorPreguntas').style.display = 'block';
+  document.getElementById('navPreguntas').style.display = 'flex';
+  document.getElementById('barraProgreso').style.display = 'block';
+
+  renderizarPreguntas();
+  mostrarPregunta(0);
+  window.scrollTo({ top: document.getElementById('test').offsetTop - 80, behavior: 'smooth' });
+}
+
+/* ════════════════════════════════════════════════════════
+   SCROLL TOP
+════════════════════════════════════════════════════════ */
+const btnTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => btnTop.classList.toggle('show', window.scrollY > 300));
+btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>

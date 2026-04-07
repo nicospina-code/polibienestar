@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Foro de Apoyo — PoliBienestar</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Estilos base PoliBienestar -->
+  <link href="styles.css" rel="stylesheet"/>
+  <!-- Estilos específicos del foro -->
+  <link href="foro.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="pb-navbar navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="pb-navbar-brand navbar-brand" href="index.html">
+      Poli<span>Bienestar</span>
+      <small>Politécnico Internacional</small>
+    </a>
+    <button class="navbar-toggler pb-navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon pb-navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="index.html">Programas</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="talleres.html">Talleres</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="consulta.html">Consulta</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="index.html">Contacto</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="pb-btn-nav nav-link" href="#nueva-pregunta">Hacer pregunta</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="pb-hero-foro">
+  <div class="container">
+    <div class="pb-breadcrumb">
+      <a href="polobienestar.html">Inicio</a>
+      <span>/</span>
+      <a href="polobienestar.html#programas">Programas</a>
+      <span>/</span>
+      Foro de Apoyo
+    </div>
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="pb-anon-aviso">
+          <i class="bi bi-shield-lock"></i>
+          Todas las publicaciones son 100% anónimas
+        </div>
+        <h1>Foro de<br/><em>Apoyo Anónimo</em></h1>
+        <p class="lead mb-4">
+          Un espacio seguro para compartir dudas, experiencias y buscar orientación. Profesionales de salud mental del Politécnico Internacional están aquí para responder.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#nueva-pregunta" class="pb-btn-hero-primary">
+            <i class="bi bi-pencil-square"></i> Hacer una pregunta
+          </a>
+          <a href="#foro" class="pb-btn-hero-secondary">
+            Ver publicaciones <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row g-3 text-center" style="position:relative; z-index:1;">
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;" id="contadorPublicaciones">4</div>
+              <div class="pb-stat-label">Publicaciones</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;" id="contadorRespuestas">7</div>
+              <div class="pb-stat-label">Respuestas</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;">3</div>
+              <div class="pb-stat-label">Profesionales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FORO ══════════ -->
+<section id="foro">
+  <div class="container">
+    <div class="pb-foro-layout">
+
+      <!-- ── COLUMNA PRINCIPAL ── -->
+      <div>
+
+        <!-- Nueva pregunta -->
+        <div class="pb-nueva-pregunta" id="nueva-pregunta">
+          <h5><i class="bi bi-pencil-square"></i> Hacer una pregunta anónima</h5>
+
+          <p style="font-size:.83rem; color:#5a6a8a; margin-bottom:1rem;">
+            <i class="bi bi-shield-lock me-1" style="color:var(--pb-azul-med);"></i>
+            No se guarda ningún dato personal. Tu identidad nunca será revelada.
+          </p>
+
+          <!-- Selector de rol -->
+          <p style="font-size:.83rem; font-weight:600; margin-bottom:.5rem; color:var(--pb-texto);">¿Quién eres?</p>
+          <div class="pb-rol-selector mb-3" id="rolSelector">
+            <button class="pb-rol-btn activo" onclick="seleccionarRol(this, 'est')">Estudiante</button>
+            <button class="pb-rol-btn" onclick="seleccionarRol(this, 'doc')">Docente</button>
+            <button class="pb-rol-btn" onclick="seleccionarRol(this, 'adm')">Administrativo</button>
+          </div>
+
+          <!-- Categoría -->
+          <select class="pb-select-categoria" id="categoriaSelect">
+            <option value="">Selecciona una categoría</option>
+            <option value="ansiedad">Ansiedad</option>
+            <option value="estres">Estrés académico</option>
+            <option value="relaciones">Relaciones interpersonales</option>
+            <option value="academico">Vida académica</option>
+            <option value="habitos">Hábitos y bienestar</option>
+            <option value="general">General</option>
+          </select>
+
+          <!-- Pregunta -->
+          <textarea class="pb-textarea-pregunta" id="textoPregunta" rows="4"
+            placeholder="Escribe tu pregunta o situación aquí. Puedes ser tan detallado como quieras, nadie sabrá quién eres…"></textarea>
+
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <small style="font-size:.78rem; color:#9aa0aa;">
+              <i class="bi bi-eye-slash me-1"></i>Tu publicación será completamente anónima
+            </small>
+            <button class="pb-btn-publicar" onclick="publicarPregunta()">
+              <i class="bi bi-send"></i> Publicar anónimamente
+            </button>
+          </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="pb-foro-filtros">
+          <span>Filtrar:</span>
+          <button class="pb-filtro-tag activo" onclick="filtrarForo(this, 'todos')">Todos</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'ansiedad')">Ansiedad</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'estres')">Estrés</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'relaciones')">Relaciones</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'academico')">Académico</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'habitos')">Hábitos</button>
+          <button class="pb-filtro-tag" onclick="filtrarForo(this, 'general')">General</button>
+        </div>
+
+        <!-- Lista de publicaciones -->
+        <div id="listaPublicaciones"></div>
+        <div class="pb-foro-vacio" id="foroVacio">
+          <i class="bi bi-chat-square-dots d-block"></i>
+          <p>No hay publicaciones en esta categoría aún.<br/>¡Sé el primero en preguntar!</p>
+        </div>
+
+      </div>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="pb-foro-sidebar">
+
+        <!-- Reglas -->
+        <div class="pb-sidebar-card">
+          <h6><i class="bi bi-info-circle"></i> Normas del foro</h6>
+          <div class="pb-regla-item">
+            <div class="pb-regla-num">1</div>
+            <span>Respeta a todos los miembros de la comunidad.</span>
+          </div>
+          <div class="pb-regla-item">
+            <div class="pb-regla-num">2</div>
+            <span>No compartas datos personales propios ni ajenos.</span>
+          </div>
+          <div class="pb-regla-item">
+            <div class="pb-regla-num">3</div>
+            <span>Este foro es de apoyo, no reemplaza atención profesional urgente.</span>
+          </div>
+          <div class="pb-regla-item">
+            <div class="pb-regla-num">4</div>
+            <span>Si estás en crisis, llama a la Línea 106 de inmediato.</span>
+          </div>
+          <div class="pb-regla-item" style="margin-bottom:0;">
+            <div class="pb-regla-num">5</div>
+            <span>Contenido inapropiado será eliminado por el equipo.</span>
+          </div>
+        </div>
+
+        <!-- Profesionales en línea -->
+        <div class="pb-sidebar-card">
+          <h6><i class="bi bi-person-check"></i> Profesionales activos</h6>
+          <div class="pb-profesional-item">
+            <div class="pb-avatar pb-avatar-prof">PS</div>
+            <div class="pb-prof-info">
+              <strong>Ps. Laura Gómez</strong>
+              <span><span class="pb-online-dot"></span>En línea</span>
+            </div>
+          </div>
+          <div class="pb-profesional-item">
+            <div class="pb-avatar pb-avatar-prof">CR</div>
+            <div class="pb-prof-info">
+              <strong>Ps. Carlos Ríos</strong>
+              <span><span class="pb-online-dot"></span>En línea</span>
+            </div>
+          </div>
+          <div class="pb-profesional-item">
+            <div class="pb-avatar pb-avatar-prof">DT</div>
+            <div class="pb-prof-info">
+              <strong>Ps. Daniela Torres</strong>
+              <span style="color:#9aa0aa;"><i class="bi bi-moon me-1"></i>Fuera de línea</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categorías populares -->
+        <div class="pb-sidebar-card">
+          <h6><i class="bi bi-tag"></i> Categorías</h6>
+          <div class="pb-tag-list">
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'ansiedad')">Ansiedad</span>
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'estres')">Estrés</span>
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'relaciones')">Relaciones</span>
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'academico')">Académico</span>
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'habitos')">Hábitos</span>
+            <span class="pb-tag-pill" onclick="filtrarForo(null, 'general')">General</span>
+          </div>
+        </div>
+
+        <!-- Línea de crisis -->
+        <div class="pb-sidebar-card" style="background:var(--pb-azul); border-color:var(--pb-azul);">
+          <h6 style="color:#fff;"><i class="bi bi-telephone-fill"></i> ¿Estás en crisis?</h6>
+          <p style="font-size:.83rem; color:rgba(255,255,255,.8); margin-bottom:.6rem;">
+            Si sientes que no puedes más, hay ayuda disponible ahora mismo.
+          </p>
+          <p style="font-size:1.3rem; font-weight:800; color:var(--pb-azul-claro); margin:0;">
+            Línea 106
+          </p>
+          <p style="font-size:.75rem; color:rgba(255,255,255,.6); margin:0;">Disponible 24/7 · Gratuita</p>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="pb-footer">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-4">
+        <div class="pb-footer-brand mb-1">Poli<span>Bienestar</span></div>
+        <div class="pb-footer-sub">Politécnico Internacional</div>
+      </div>
+      <div class="col-md-4 text-md-center">
+        <small>© 2025 Politécnico Internacional — Bienestar Estudiantil</small>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a href="polobienestar.html#programas" class="me-3">Programas</a>
+        <a href="talleres.html" class="me-3">Talleres</a>
+        <a href="polobienestar.html#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="pb-scroll-top" id="scrollTop" title="Volver arriba">
+  <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ════════════════════════════════════════════════
+   DATOS INICIALES DEL FORO (simulados)
+════════════════════════════════════════════════ */
+const publicacionesIniciales = [
+  {
+    id: 1,
+    rol: 'est',
+    categoria: 'estres',
+    texto: 'Últimamente no puedo concentrarme estudiando, siento que por más que me esfuerzo no rindo igual que antes. ¿Es normal sentir eso a mitad del semestre? ¿Qué puedo hacer?',
+    tiempo: 'Hace 2 horas',
+    likes: 8,
+    respuestas: [
+      {
+        rol: 'prof',
+        nombre: 'Ps. Laura Gómez',
+        texto: 'Es completamente normal, especialmente a mitad del semestre cuando la carga académica se acumula. Lo que describes puede ser fatiga mental. Te recomiendo hacer pausas activas de 10 minutos cada hora de estudio, dormir mínimo 7 horas y si persiste, agenda una cita con nosotros. ¡No estás solo en esto!',
+        tiempo: 'Hace 1 hora',
+        esProfesional: true
+      }
+    ]
+  },
+  {
+    id: 2,
+    rol: 'est',
+    categoria: 'ansiedad',
+    texto: 'Me da mucha ansiedad hablar en público en las clases. Cuando el profesor me pregunta algo, aunque sepa la respuesta, me bloqueo completamente y se me olvida todo. ¿Alguien más le pasa esto?',
+    tiempo: 'Hace 5 horas',
+    likes: 14,
+    respuestas: [
+      {
+        rol: 'est',
+        nombre: 'Estudiante anónimo',
+        texto: 'A mí me pasaba exactamente lo mismo. Lo que me ayudó fue practicar respirando profundo antes de responder. No te presiones tanto.',
+        tiempo: 'Hace 4 horas',
+        esProfesional: false
+      },
+      {
+        rol: 'prof',
+        nombre: 'Ps. Carlos Ríos',
+        texto: 'Lo que describes se llama ansiedad de desempeño y es muy frecuente. La técnica 4-7-8 puede ayudarte: inhala 4 segundos, sostén 7 y exhala 8. En nuestros talleres de bienestar trabajamos esto con más detalle. Te invito a inscribirte.',
+        tiempo: 'Hace 3 horas',
+        esProfesional: true
+      }
+    ]
+  },
+  {
+    id: 3,
+    rol: 'doc',
+    categoria: 'relaciones',
+    texto: 'Como docente, noto que varios estudiantes en mis clases llegan agotados o desconectados. ¿Existe algún protocolo que pueda seguir para apoyarlos sin invadir su privacidad?',
+    tiempo: 'Hace 1 día',
+    likes: 11,
+    respuestas: [
+      {
+        rol: 'prof',
+        nombre: 'Ps. Daniela Torres',
+        texto: 'Gracias por la sensibilidad con sus estudiantes. Sí existe un protocolo de acompañamiento docente. Puede remitirlos al programa PoliBienestar mencionándolo de forma natural en clase, o comunicarse con nosotros directamente por correo para orientación más específica.',
+        tiempo: 'Hace 20 horas',
+        esProfesional: true
+      }
+    ]
+  },
+  {
+    id: 4,
+    rol: 'est',
+    categoria: 'habitos',
+    texto: 'Duermo muy poco porque me quedo hasta las 2 o 3am estudiando y luego tengo clase a las 7am. Ya sé que está mal pero no veo otra forma de alcanzar con todo. ¿Cómo organizarse mejor?',
+    tiempo: 'Hace 2 días',
+    likes: 19,
+    respuestas: [
+      {
+        rol: 'est',
+        nombre: 'Estudiante anónimo',
+        texto: 'Yo uso la técnica Pomodoro: 25 min de estudio, 5 de descanso. Rindo mucho más que quedándome despierto toda la noche.',
+        tiempo: 'Hace 1 día',
+        esProfesional: false
+      },
+      {
+        rol: 'prof',
+        nombre: 'Ps. Laura Gómez',
+        texto: 'El sueño insuficiente afecta directamente la memoria y el aprendizaje, así que estudiar más horas durmiendo poco puede ser contraproducente. En nuestro taller "Sueño, alimentación y bienestar" del 27 de febrero tocamos exactamente esto. Te invito a inscribirte en talleres.html',
+        tiempo: 'Hace 22 horas',
+        esProfesional: true
+      }
+    ]
+  }
+];
+
+/* ════════════════════════════════════════════════
+   ESTADO DE LA APP
+════════════════════════════════════════════════ */
+let publicaciones = [...publicacionesIniciales];
+let rolActual = 'est';
+let filtroActual = 'todos';
+let contadorId = publicaciones.length + 1;
+
+/* ════════════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════════════ */
+const catLabels = {
+  ansiedad:   { label: 'Ansiedad',     clase: 'pb-cat-ansiedad'   },
+  estres:     { label: 'Estrés',       clase: 'pb-cat-estres'     },
+  relaciones: { label: 'Relaciones',   clase: 'pb-cat-relaciones' },
+  academico:  { label: 'Académico',    clase: 'pb-cat-academico'  },
+  habitos:    { label: 'Hábitos',      clase: 'pb-cat-habitos'    },
+  general:    { label: 'General',      clase: 'pb-cat-general'    },
+};
+
+const rolLabels = {
+  est:  { label: 'Estudiante anónimo',     iniciales: 'EA', clase: 'pb-avatar-est'  },
+  doc:  { label: 'Docente anónimo',        iniciales: 'DA', clase: 'pb-avatar-doc'  },
+  adm:  { label: 'Administrativo anónimo',iniciales: 'AA', clase: 'pb-avatar-adm'  },
+  prof: { label: 'Profesional de salud',   iniciales: 'PS', clase: 'pb-avatar-prof' },
+};
+
+function tiempoRelativo() {
+  return 'Ahora mismo';
+}
+
+/* ════════════════════════════════════════════════
+   RENDERIZAR PUBLICACIONES
+════════════════════════════════════════════════ */
+function renderizar() {
+  const lista = document.getElementById('listaPublicaciones');
+  const vacio = document.getElementById('foroVacio');
+  const filtradas = filtroActual === 'todos'
+    ? publicaciones
+    : publicaciones.filter(p => p.categoria === filtroActual);
+
+  if (filtradas.length === 0) {
+    lista.innerHTML = '';
+    vacio.style.display = 'block';
+    return;
+  }
+
+  vacio.style.display = 'none';
+  lista.innerHTML = filtradas.map(p => buildCard(p)).join('');
+
+  // Actualizar contadores del hero
+  const totalResp = publicaciones.reduce((acc, p) => acc + p.respuestas.length, 0);
+  document.getElementById('contadorPublicaciones').textContent = publicaciones.length;
+  document.getElementById('contadorRespuestas').textContent = totalResp;
+}
+
+function buildCard(p) {
+  const cat  = catLabels[p.categoria] || catLabels.general;
+  const rol  = rolLabels[p.rol] || rolLabels.est;
+  const numResp = p.respuestas.length;
+
+  const respuestasHTML = p.respuestas.map(r => {
+    const rRol = rolLabels[r.esProfesional ? 'prof' : r.rol] || rolLabels.est;
+    return `
+      <div class="pb-respuesta-item">
+        <div class="pb-avatar ${rRol.clase}" style="width:32px;height:32px;font-size:.75rem;">${rRol.iniciales}</div>
+        <div class="pb-respuesta-body">
+          <p>${r.texto}</p>
+          <div class="pb-respuesta-info">
+            <strong style="color:var(--pb-texto);">${r.nombre}</strong>
+            ${r.esProfesional ? '<span class="pb-badge-profesional">Profesional</span>' : ''}
+            · ${r.tiempo}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="pb-pregunta-card" data-id="${p.id}" data-cat="${p.categoria}">
+      <div class="pb-pregunta-header">
+        <div class="pb-pregunta-meta">
+          <div class="pb-avatar ${rol.clase}">${rol.iniciales}</div>
+          <div class="pb-autor-info">
+            <div class="pb-autor-rol">${rol.label}</div>
+            <div class="pb-autor-tiempo">${p.tiempo}</div>
+          </div>
+          <span class="pb-cat-tag ${cat.clase}">${cat.label}</span>
+        </div>
+        <p class="pb-pregunta-texto">${p.texto}</p>
+      </div>
+
+      <div class="pb-pregunta-acciones">
+        <button class="pb-accion-btn" onclick="toggleLike(this, ${p.id})">
+          <i class="bi bi-heart"></i> <span class="like-count">${p.likes}</span>
+        </button>
+        <button class="pb-accion-btn" onclick="toggleRespuestas(${p.id})">
+          <i class="bi bi-chat-dots"></i> ${numResp} respuesta${numResp !== 1 ? 's' : ''}
+        </button>
+        <div class="pb-respuestas-count">
+          <i class="bi bi-eye"></i> Ver hilo
+        </div>
+      </div>
+
+      <div class="pb-respuestas-wrap" id="respuestas-${p.id}">
+        ${respuestasHTML}
+        <div class="pb-responder-form">
+          <p style="font-size:.82rem; font-weight:600; margin-bottom:.5rem; color:var(--pb-texto);">
+            <i class="bi bi-reply me-1"></i>Responder anónimamente
+          </p>
+          <textarea rows="3" placeholder="Escribe tu respuesta…" id="respText-${p.id}"></textarea>
+          <div class="d-flex gap-2 align-items-center flex-wrap">
+            <button class="pb-btn-responder" onclick="publicarRespuesta(${p.id})">
+              <i class="bi bi-send me-1"></i>Enviar respuesta
+            </button>
+            <small style="font-size:.75rem; color:#9aa0aa;">
+              <i class="bi bi-shield-lock me-1"></i>Anónima
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ════════════════════════════════════════════════
+   ACCIONES
+════════════════════════════════════════════════ */
+
+// Seleccionar rol al publicar
+function seleccionarRol(btn, rol) {
+  document.querySelectorAll('#rolSelector .pb-rol-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  rolActual = rol;
+}
+
+// Publicar nueva pregunta
+function publicarPregunta() {
+  const texto     = document.getElementById('textoPregunta').value.trim();
+  const categoria = document.getElementById('categoriaSelect').value;
+
+  if (!texto) {
+    alert('Por favor escribe tu pregunta antes de publicar.');
+    return;
+  }
+  if (!categoria) {
+    alert('Por favor selecciona una categoría.');
+    return;
+  }
+
+  const nueva = {
+    id: contadorId++,
+    rol: rolActual,
+    categoria,
+    texto,
+    tiempo: tiempoRelativo(),
+    likes: 0,
+    respuestas: []
+  };
+
+  publicaciones.unshift(nueva);
+  document.getElementById('textoPregunta').value = '';
+  document.getElementById('categoriaSelect').value = '';
+  renderizar();
+
+  // Scroll suave a la nueva publicación
+  setTimeout(() => {
+    document.querySelector('.pb-pregunta-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// Mostrar / ocultar respuestas
+function toggleRespuestas(id) {
+  const wrap = document.getElementById(`respuestas-${id}`);
+  wrap.classList.toggle('abierto');
+}
+
+// Like
+function toggleLike(btn, id) {
+  const p = publicaciones.find(x => x.id === id);
+  if (!p) return;
+  const liked = btn.classList.toggle('liked');
+  p.likes += liked ? 1 : -1;
+  btn.querySelector('.like-count').textContent = p.likes;
+  btn.querySelector('i').className = liked ? 'bi bi-heart-fill' : 'bi bi-heart';
+}
+
+// Publicar respuesta
+function publicarRespuesta(id) {
+  const textarea = document.getElementById(`respText-${id}`);
+  const texto = textarea.value.trim();
+  if (!texto) return;
+
+  const p = publicaciones.find(x => x.id === id);
+  if (!p) return;
+
+  p.respuestas.push({
+    rol: rolActual,
+    nombre: rolLabels[rolActual]?.label || 'Anónimo',
+    texto,
+    tiempo: tiempoRelativo(),
+    esProfesional: false
+  });
+
+  renderizar();
+
+  // Re-abrir el hilo después de renderizar
+  setTimeout(() => {
+    const wrap = document.getElementById(`respuestas-${id}`);
+    if (wrap) wrap.classList.add('abierto');
+  }, 50);
+}
+
+// Filtrar por categoría
+function filtrarForo(btn, categoria) {
+  filtroActual = categoria;
+  // Actualizar botones de filtro principales
+  document.querySelectorAll('.pb-filtro-tag').forEach(b => b.classList.remove('activo'));
+  if (btn) btn.classList.add('activo');
+  renderizar();
+  document.getElementById('foro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ════════════════════════════════════════════════
+   SCROLL TOP
+════════════════════════════════════════════════ */
+const btnTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => btnTop.classList.toggle('show', window.scrollY > 300));
+btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ════════════════════════════════════════════════
+   SMOOTH SCROLL
+════════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+/* ════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════ */
+renderizar();
+</script>
+</body>
+</html>

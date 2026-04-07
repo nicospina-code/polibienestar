@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta Psicológica — PoliBienestar</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Estilos base PoliBienestar -->
+  <link href="styles.css" rel="stylesheet"/>
+  <!-- Estilos específicos de consulta -->
+  <link href="consulta.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="pb-navbar navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="pb-navbar-brand navbar-brand" href="index.html">
+      Poli<span>Bienestar</span>
+      <small>Politécnico Internacional</small>
+    </a>
+    <button class="navbar-toggler pb-navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon pb-navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="index.html">Programas</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="talleres.html">Talleres</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="foro.html">Foro</a></li>
+        <li class="nav-item"><a class="pb-nav-link nav-link" href="index.html">Contacto</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="pb-btn-nav nav-link" href="#agendar">Agendar cita</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="pb-hero-consulta">
+  <div class="container">
+    <div class="pb-breadcrumb">
+      <a href="polobienestar.html">Inicio</a>
+      <span>/</span>
+      <a href="polobienestar.html#programas">Programas</a>
+      <span>/</span>
+      Consulta Psicológica
+    </div>
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="pb-hero-badge">
+          <i class="bi bi-chat-heart me-1"></i> Atención individual — Politécnico Internacional
+        </div>
+        <h1>Consulta<br/><em>Psicológica</em></h1>
+        <p class="lead mb-3">
+          Sesiones individuales gratuitas y confidenciales con profesionales en salud mental. Un espacio seguro para hablar de lo que te preocupa, sin juicios.
+        </p>
+        <div class="pb-garantias">
+          <span class="pb-garantia-chip"><i class="bi bi-shield-lock"></i> 100% confidencial</span>
+          <span class="pb-garantia-chip"><i class="bi bi-cash-stack"></i> Completamente gratuito</span>
+          <span class="pb-garantia-chip"><i class="bi bi-person-check"></i> Profesionales certificados</span>
+          <span class="pb-garantia-chip"><i class="bi bi-calendar-check"></i> Cita en menos de 48h</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#agendar" class="pb-btn-hero-primary">
+            <i class="bi bi-calendar-plus"></i> Agendar mi cita
+          </a>
+<!--          <a href="#psicologos" class="pb-btn-hero-secondary">
+            Ver psicólogos <i class="bi bi-arrow-right"></i>
+          </a> -->
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row g-3 text-center" style="position:relative; z-index:1;">
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;">3</div>
+              <div class="pb-stat-label">Psicólogos</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;">50'</div>
+              <div class="pb-stat-label">Por sesión</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div style="background:rgba(255,255,255,.12); border-radius:16px; padding:1.2rem .8rem;">
+              <div class="pb-stat-num" style="font-size:1.8rem;">500+</div>
+              <div class="pb-stat-label">Atendidos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INFO DEL SERVICIO ══════════ -->
+<section id="servicio">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <span class="pb-section-tag">El servicio</span>
+      <h2 class="pb-section-title">¿En qué te podemos ayudar?</h2>
+      <p class="pb-section-subtitle mx-auto">
+        La consulta psicológica es un espacio profesional para trabajar cualquier situación que afecte tu bienestar emocional.
+      </p>
+    </div>
+
+    <!-- Tarjetas de motivos de consulta -->
+    <div class="row g-4 mb-5">
+      <div class="col-sm-6 col-lg-3">
+        <div class="pb-info-card">
+          <div class="pb-info-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h5>Estrés y ansiedad</h5>
+          <p>Presión académica, miedos, ataques de pánico o preocupación constante que afecta tu día a día.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="pb-info-card">
+          <div class="pb-info-icon"><i class="bi bi-cloud-rain"></i></div>
+          <h5>Tristeza y ánimo bajo</h5>
+          <p>Sentimientos de desmotivación, vacío, llanto frecuente o pérdida de interés en actividades.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="pb-info-card">
+          <div class="pb-info-icon"><i class="bi bi-people"></i></div>
+          <h5>Relaciones interpersonales</h5>
+          <p>Conflictos con compañeros, familia, pareja o dificultades para relacionarte con otros.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="pb-info-card">
+          <div class="pb-info-icon"><i class="bi bi-book"></i></div>
+          <h5>Rendimiento académico</h5>
+          <p>Dificultades de concentración, procrastinación, bloqueos o bajo rendimiento sin causa aparente.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proceso + Garantías -->
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-6">
+        <span class="pb-section-tag">¿Cómo funciona?</span>
+        <h3 class="pb-section-title" style="font-size:1.9rem;">El proceso paso a paso</h3>
+        <p class="pb-section-subtitle mb-4">Desde que agendas hasta tu primera sesión, así funciona el proceso.</p>
+
+        <div class="pb-proceso-wrap">
+          <div class="pb-paso-item">
+            <div class="pb-paso-bullet">1</div>
+            <h6>Agenda tu cita</h6>
+            <p>Llena el formulario al final de esta página eligiendo psicólogo, fecha y modalidad (presencial o virtual).</p>
+          </div>
+          <div class="pb-paso-item">
+            <div class="pb-paso-bullet">2</div>
+            <h6>Confirmación por correo</h6>
+            <p>Recibirás un correo de confirmación en menos de 24 horas con los detalles de tu cita.</p>
+          </div>
+          <div class="pb-paso-item">
+            <div class="pb-paso-bullet">3</div>
+            <h6>Primera sesión</h6>
+            <p>La primera sesión es de valoración (50 min). El psicólogo conocerá tu situación y definirán juntos el acompañamiento.</p>
+          </div>
+          <div class="pb-paso-item">
+            <div class="pb-paso-bullet">4</div>
+            <h6>Seguimiento</h6>
+            <p>Según tu caso, se establecerá un plan de sesiones periódicas. Todo es gratuito mientras seas parte de la comunidad Politécnico Internacional.</p>
+          </div>
+          <div class="pb-paso-item">
+              <a href="#agendar" class="pb-btn-agendar-card" onclick="preseleccionarPsicologo('Ps. Laura Gómez')">
+                <i class="bi bi-calendar-plus me-1"></i> Agendar Cita
+              </a>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <span class="pb-section-tag">Garantías</span>
+        <h3 class="pb-section-title" style="font-size:1.9rem;">Tu privacidad, primero</h3>
+        <p class="pb-section-subtitle mb-4">Sabemos que dar el primer paso requiere confianza. Por eso garantizamos:</p>
+
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="pb-rec-item">
+              <div class="pb-rec-icon"><i class="bi bi-shield-lock"></i></div>
+              <div>
+                <h6>Confidencialidad total</h6>
+                <p>Lo que hablas en consulta no sale de ahí. Aplica el secreto profesional excepto en situaciones de riesgo vital.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="pb-rec-item">
+              <div class="pb-rec-icon"><i class="bi bi-cash-stack"></i></div>
+              <div>
+                <h6>Siempre gratuito</h6>
+                <p>El servicio es financiado por la universidad. No se cobra ningún valor a estudiantes, docentes ni administrativos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="pb-rec-item">
+              <div class="pb-rec-icon"><i class="bi bi-award"></i></div>
+              <div>
+                <h6>Profesionales certificados</h6>
+                <p>Todos nuestros psicólogos tienen título universitario, tarjeta profesional vigente y experiencia en salud mental.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="pb-rec-item">
+              <div class="pb-rec-icon"><i class="bi bi-laptop"></i></div>
+              <div>
+                <h6>Presencial o virtual</h6>
+                <p>Puedes elegir la modalidad que más te convenga. Las sesiones virtuales son por videollamada segura.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PERFILES DE PSICÓLOGOS ══════════ -->
+<section id="psicologos">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="pb-section-tag">Equipo</span>
+      <h2 class="pb-section-title">Nuestros psicólogos</h2>
+      <p class="pb-section-subtitle mx-auto">
+        Profesionales comprometidos con tu bienestar. Puedes elegir con quién quieres tener tu sesión.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      Psicólogo 1 
+      <div class="col-md-6 col-lg-4">
+        <div class="pb-psicologo-card">
+          <div class="pb-psicologo-header">
+            <span class="pb-disponible-badge">Disponible</span>
+                 <img src="fotos/laura.jpg" class="pb-foto-psicologo-real" alt="Ps. Laura Gómez"> 
+           <div class="pb-foto-psicologo">LG</div>
+            <h5>Ps. Laura Gómez</h5>
+            <p>Psicóloga Clínica y de la Salud</p>
+          </div>
+          <div class="pb-psicologo-body">
+            <p>Especialista en ansiedad, estrés académico y bienestar emocional en jóvenes universitarios. 6 años de experiencia en entornos educativos.</p>
+            <div class="pb-especialidades">
+              <span class="pb-esp-tag">Ansiedad</span>
+              <span class="pb-esp-tag">Estrés académico</span>
+              <span class="pb-esp-tag">Autoestima</span>
+              <span class="pb-esp-tag">TCC</span>
+            </div>
+            <div class="pb-horario-item"><i class="bi bi-calendar3"></i> Lunes, miércoles y viernes</div>
+            <div class="pb-horario-item"><i class="bi bi-clock"></i> 8:00 am – 12:00 m</div>
+            <div class="pb-horario-item"><i class="bi bi-geo-alt"></i> Oficina 204, Bloque Bienestar</div>
+            <div class="pb-horario-item"><i class="bi bi-laptop"></i> También virtual</div>
+            <a href="#agendar" class="pb-btn-agendar-card" onclick="preseleccionarPsicologo('Ps. Laura Gómez')">
+              <i class="bi bi-calendar-plus me-1"></i> Agendar con Laura
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Psicólogo 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="pb-psicologo-card">
+          <div class="pb-psicologo-header">
+            <span class="pb-disponible-badge">Disponible</span>
+            <div class="pb-foto-psicologo">CR</div>
+            <h5>Ps. Carlos Ríos</h5>
+            <p>Psicólogo Educativo</p>
+          </div>
+          <div class="pb-psicologo-body">
+            <p>Enfocado en dificultades de aprendizaje, procrastinación y rendimiento académico. Experto en técnicas de mindfulness y atención plena.</p>
+            <div class="pb-especialidades">
+              <span class="pb-esp-tag">Mindfulness</span>
+              <span class="pb-esp-tag">Rendimiento académico</span>
+              <span class="pb-esp-tag">Concentración</span>
+              <span class="pb-esp-tag">Hábitos</span>
+            </div>
+            <div class="pb-horario-item"><i class="bi bi-calendar3"></i> Martes y jueves</div>
+            <div class="pb-horario-item"><i class="bi bi-clock"></i> 10:00 am – 6:00 pm</div>
+            <div class="pb-horario-item"><i class="bi bi-geo-alt"></i> Oficina 205, Bloque Bienestar</div>
+            <div class="pb-horario-item"><i class="bi bi-laptop"></i> También virtual</div>
+            <a href="#agendar" class="pb-btn-agendar-card" onclick="preseleccionarPsicologo('Ps. Carlos Ríos')">
+              <i class="bi bi-calendar-plus me-1"></i> Agendar con Carlos
+            </a>
+          </div>
+        </div>
+      </div>
+
+       Psicólogo 3 
+      <div class="col-md-6 col-lg-4">
+        <div class="pb-psicologo-card">
+          <div class="pb-psicologo-header">
+            <span class="pb-disponible-badge no-disponible">Fuera de línea</span>
+            <div class="pb-foto-psicologo">DT</div>
+            <h5>Ps. Daniela Torres</h5>
+            <p>Psicóloga Social y Comunitaria</p>
+          </div>
+          <div class="pb-psicologo-body">
+            <p>Especialista en relaciones interpersonales, duelo, comunicación asertiva y bienestar en equipos de trabajo.</p>
+            <div class="pb-especialidades">
+              <span class="pb-esp-tag">Relaciones</span>
+              <span class="pb-esp-tag">Duelo</span>
+              <span class="pb-esp-tag">Comunicación</span>
+              <span class="pb-esp-tag">Equipos</span>
+            </div>
+            <div class="pb-horario-item"><i class="bi bi-calendar3"></i> Lunes y miércoles</div>
+            <div class="pb-horario-item"><i class="bi bi-clock"></i> 2:00 pm – 6:00 pm</div>
+            <div class="pb-horario-item"><i class="bi bi-geo-alt"></i> Oficina 206, Bloque Bienestar</div>
+            <div class="pb-horario-item"><i class="bi bi-laptop"></i> También virtual</div>
+            <a href="#agendar" class="pb-btn-agendar-card" onclick="preseleccionarPsicologo('Ps. Daniela Torres')">
+              <i class="bi bi-calendar-plus me-1"></i> Agendar con Daniela
+            </a>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section> 
+
+<!-- ══════════ FORMULARIO AGENDAR CITA ══════════ -->
+<section id="agendar">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Info lateral -->
+      <div class="col-lg-4">
+        <span class="pb-section-tag" style="background:rgba(255,255,255,.15); color:#fff;">Agenda tu cita</span>
+        <h2 class="pb-section-title">Da el primer paso</h2>
+        <p style="color:rgba(255,255,255,.82); line-height:1.7; margin-bottom:1.5rem;">
+          Pedir ayuda es un acto de valentía. Nuestro equipo estará listo para acompañarte.
+        </p>
+        <div class="pb-cita-info-box">
+          <h4><i class="bi bi-info-circle me-2"></i>Importante</h4>
+          <div class="pb-cita-detalle">
+            <i class="bi bi-clock"></i>
+            <span>Las citas duran <strong>50 minutos</strong>. Llega 5 minutos antes.</span>
+          </div>
+          <div class="pb-cita-detalle">
+            <i class="bi bi-calendar-check"></i>
+            <span>Confirmación en menos de <strong>24 horas</strong> por correo.</span>
+          </div>
+          <div class="pb-cita-detalle">
+            <i class="bi bi-x-circle"></i>
+            <span>Si no puedes asistir, cancela con <strong>24h de anticipación</strong>.</span>
+          </div>
+          <div class="pb-cita-detalle">
+            <i class="bi bi-envelope"></i>
+            <span>bienestar@politecnicointernacional.edu.co</span>
+          </div>
+          <div class="pb-cita-detalle" style="margin-bottom:0;">
+            <i class="bi bi-telephone"></i>
+            <span>(601) 123 4567 ext. 890</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="col-lg-8">
+        <div class="pb-cita-form-card">
+          <h3><i class="bi bi-calendar-plus me-2"></i>Agendar consulta psicológica</h3>
+
+          <!-- Modalidad -->
+          <p style="font-size:.88rem; font-weight:600; margin-bottom:.6rem; color:rgba(255,255,255,.85);">
+            Modalidad de la sesión
+          </p>
+          <div class="pb-modalidad-selector mb-3">
+            <div class="pb-modalidad-opt activo" onclick="seleccionarModalidad(this, 'presencial')">
+              <i class="bi bi-building"></i>
+              Presencial
+            </div>
+            <div class="pb-modalidad-opt" onclick="seleccionarModalidad(this, 'virtual')">
+              <i class="bi bi-camera-video"></i>
+              Virtual
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="pb-form-label">Nombre completo</label>
+              <input type="text" class="pb-form-control" placeholder="Tu nombre completo"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Correo institucional</label>
+              <input type="email" class="pb-form-control" placeholder="nombre@politecnicointernacional.edu.co"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Soy…</label>
+              <select class="pb-form-select">
+                <option value="">Selecciona</option>
+                <option>Estudiante</option>
+                <option>Docente</option>
+                <option>Administrativo</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Teléfono / WhatsApp</label>
+              <input type="tel" class="pb-form-control" placeholder="300 000 0000"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Psicólogo de preferencia</label>
+              <select class="pb-form-select" id="psicologoSelect">
+                <option value="">Sin preferencia</option>
+                <option>Ps. Laura Gómez</option>
+                <option>Ps. Carlos Ríos</option>
+                <option>Ps. Daniela Torres</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Motivo principal</label>
+              <select class="pb-form-select">
+                <option value="">Selecciona</option>
+                <option>Ansiedad o estrés</option>
+                <option>Tristeza o ánimo bajo</option>
+                <option>Relaciones interpersonales</option>
+                <option>Rendimiento académico</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Fecha preferida</label>
+              <input type="date" class="pb-form-control"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="pb-form-label">Hora preferida</label>
+              <select class="pb-form-select">
+                <option value="">Selecciona</option>
+                <option>8:00 am</option>
+                <option>9:00 am</option>
+                <option>10:00 am</option>
+                <option>11:00 am</option>
+                <option>2:00 pm</option>
+                <option>3:00 pm</option>
+                <option>4:00 pm</option>
+                <option>5:00 pm</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="pb-form-label">Cuéntanos brevemente cómo te has sentido (opcional)</label>
+              <textarea class="pb-form-control" rows="3"
+                placeholder="No es obligatorio, pero ayuda al psicólogo a prepararse mejor para tu sesión…"></textarea>
+            </div>
+            <div class="col-12">
+              <div class="d-flex align-items-start gap-2 mb-3">
+                <input type="checkbox" id="aceptarCita" style="margin-top:3px; accent-color:var(--pb-azul-claro);"/>
+                <label for="aceptarCita" style="font-size:.82rem; color:rgba(255,255,255,.75);">
+                  Entiendo que esta información es confidencial y será usada únicamente por el equipo de PoliBienestar para gestionar mi cita.
+                </label>
+              </div>
+              <button class="pb-btn-submit" type="button" onclick="enviarCita()">
+                <i class="bi bi-calendar-check me-2"></i>Solicitar cita
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirmación -->
+          <div class="pb-confirmacion" id="confirmacionCita">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <strong>¡Solicitud enviada!</strong><br/>
+              <span style="font-size:.85rem; opacity:.85;">Recibirás una confirmación en tu correo en menos de 24 horas. ¡Gracias por dar este paso!</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="pb-footer">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-4">
+        <div class="pb-footer-brand mb-1">Poli<span>Bienestar</span></div>
+        <div class="pb-footer-sub">Politécnico Internacional</div>
+      </div>
+      <div class="col-md-4 text-md-center">
+        <small>© 2025 Politécnico Internacional — Bienestar Estudiantil</small>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a href="talleres.html" class="me-3">Talleres</a>
+        <a href="foro.html" class="me-3">Foro</a>
+        <a href="polobienestar.html#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="pb-scroll-top" id="scrollTop" title="Volver arriba">
+  <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Scroll to top
+  const btnTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => btnTop.classList.toggle('show', window.scrollY > 300));
+  btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Seleccionar modalidad
+  function seleccionarModalidad(el, valor) {
+    document.querySelectorAll('.pb-modalidad-opt').forEach(o => o.classList.remove('activo'));
+    el.classList.add('activo');
+  }
+
+  // Pre-seleccionar psicólogo desde las tarjetas
+  function preseleccionarPsicologo(nombre) {
+    const sel = document.getElementById('psicologoSelect');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === nombre) { sel.selectedIndex = i; break; }
+    }
+  }
+
+  // Enviar formulario (simulado)
+  function enviarCita() {
+    const checkbox = document.getElementById('aceptarCita');
+    if (!checkbox.checked) {
+      alert('Por favor acepta los términos de confidencialidad para continuar.');
+      return;
+    }
+    document.getElementById('confirmacionCita').classList.add('visible');
+    document.getElementById('confirmacionCita').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════════
+   videos.css — Serie Bienestar PoliBienestar
+   Depende de: Bootstrap 5, Bootstrap Icons, polobienestar.css
+═══════════════════════════════════════════════════════ */
+
+/* ── HERO ────────────────────────────────────────────── */
+.pb-hero-videos {
+  background: linear-gradient(135deg, #020b2e 0%, #041e6e 55%, var(--pb-azul) 100%);
+  color: var(--pb-blanco);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pb-hero-videos::before {
+  content: '';
+  position: absolute;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  top: -130px; right: -90px;
+}
+
+.pb-hero-videos h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.pb-hero-videos h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--pb-azul-claro);
+}
+
+.pb-hero-videos p.lead {
+  font-size: 1rem;
+  opacity: .88;
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+/* ── SECCIÓN ─────────────────────────────────────────── */
+#videos { background: var(--pb-gris); }
+
+/* ── GRID DE VIDEOS ──────────────────────────────────── */
+.pb-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+@media (max-width: 991px) { .pb-videos-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px) { .pb-videos-grid { grid-template-columns: 1fr; } }
+
+/* ── TARJETA DE VIDEO ────────────────────────────────── */
+.pb-video-card {
+  background: var(--pb-blanco);
+  border-radius: 18px;
+  border: 1.5px solid var(--pb-gris-dark);
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.pb-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,48,135,.12);
+  border-color: var(--pb-azul-claro);
+}
+
+/* Contenedor del iframe — relación 16:9 */
+.pb-video-frame-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.pb-video-frame-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Info debajo del video */
+.pb-video-info {
+  padding: 1rem 1.2rem 1.3rem;
+}
+
+.pb-video-info h6 {
+  font-size: .97rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+  color: var(--pb-texto);
+  line-height: 1.4;
+}
+
+.pb-video-info p {
+  font-size: .85rem;
+  color: #5a6a8a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pb-hero-videos { padding: 60px 0 40px; }
+}
